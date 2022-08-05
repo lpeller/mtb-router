@@ -69,7 +69,7 @@
         <module>client-hc</module>
         <module>navigation</module>
         <module>example</module>
-        <module>mtb_router</module>
+        <module>mtbRouter</module>
     </modules>
     <dependencyManagement>
         <dependencies>
