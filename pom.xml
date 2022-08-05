@@ -69,6 +69,7 @@
         <module>client-hc</module>
         <module>navigation</module>
         <module>example</module>
+        <module>mtb_router</module>
     </modules>
     <dependencyManagement>
         <dependencies>
