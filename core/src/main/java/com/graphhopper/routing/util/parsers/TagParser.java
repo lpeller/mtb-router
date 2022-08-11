@@ -18,7 +18,11 @@
 package com.graphhopper.routing.util.parsers;
 
 import com.graphhopper.reader.ReaderWay;
+import com.graphhopper.routing.ev.EncodedValue;
+import com.graphhopper.routing.ev.EncodedValueLookup;
 import com.graphhopper.storage.IntsRef;
+
+import java.util.List;
 
 /**
  * This interface defines how parts of the information from 'way' is converted into IntsRef. A TagParser usually
@@ -27,4 +31,8 @@ import com.graphhopper.storage.IntsRef;
 public interface TagParser {
 
     IntsRef handleWayTags(IntsRef edgeFlags, ReaderWay way, IntsRef relationFlags);
+
+    IntsRef handleWayTags(IntsRef edgeFlags, ReaderWay way, boolean ferry, IntsRef relationFlags);
+
+    void createEncodedValues(EncodedValueLookup lookup, List<EncodedValue> registerNewEncodedValue);
 }
