@@ -1,9 +1,10 @@
-package com.mtb.router.entities;
+package com.graphhopper.routing.util.parsers;
 
 import com.graphhopper.reader.ReaderWay;
 import com.graphhopper.routing.ev.IntEncodedValue;
-import com.graphhopper.routing.util.parsers.TagParser;
+import com.graphhopper.routing.ev.gpx_weight;
 import com.graphhopper.storage.IntsRef;
+
 
 public class CustomTagParser implements TagParser {
 
@@ -12,6 +13,7 @@ public class CustomTagParser implements TagParser {
     public CustomTagParser() {
         this.encodedValue = gpx_weight.create();
     }
+
 
     @Override
     public IntsRef handleWayTags(IntsRef edgeFlags, ReaderWay way, IntsRef relationFlags) {

@@ -1,7 +1,5 @@
-package com.mtb.router.entities;
+package com.graphhopper.routing.ev;
 
-import com.graphhopper.routing.ev.IntEncodedValue;
-import com.graphhopper.routing.ev.IntEncodedValueImpl;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
