@@ -20,6 +20,7 @@ package com.mtb.router.cli;
 
 import com.graphhopper.http.GraphHopperManaged;
 import com.mtb.router.GraphHopperServerConfiguration;
+import com.mtb.router.entities.CustomEncodedValueFactory;
 import io.dropwizard.cli.ConfiguredCommand;
 import io.dropwizard.setup.Bootstrap;
 import net.sourceforge.argparse4j.inf.Namespace;
@@ -32,7 +33,8 @@ public class ImportCommand extends ConfiguredCommand<GraphHopperServerConfigurat
 
     @Override
     protected void run(Bootstrap<GraphHopperServerConfiguration> bootstrap, Namespace namespace, GraphHopperServerConfiguration configuration) {
-        final GraphHopperManaged graphHopper = new GraphHopperManaged(configuration.getGraphHopperConfiguration());
+        GraphHopperManaged graphHopper = new GraphHopperManaged(configuration.getGraphHopperConfiguration());
+        graphHopper.getGraphHopper().setEncodedValueFactory(new CustomEncodedValueFactory());
         graphHopper.getGraphHopper().importAndClose();
     }
 

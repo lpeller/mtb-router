@@ -4,7 +4,6 @@ import com.graphhopper.http.CORSFilter;
 import com.graphhopper.http.GraphHopperBundle;
 import com.graphhopper.http.RealtimeBundle;
 import com.graphhopper.navigation.NavigateResource;
-import com.mtb.router.cli.ImportCommand;
 import com.mtb.router.cli.MatchCommand;
 import com.mtb.router.resources.RootResource;
 import io.dropwizard.Application;
@@ -26,7 +25,7 @@ public class MtbRouterApplication extends Application<GraphHopperServerConfigura
 
         bootstrap.addBundle(new GraphHopperBundle());
         bootstrap.addBundle(new RealtimeBundle());
-        bootstrap.addCommand(new ImportCommand());
+        //bootstrap.addCommand(new ImportCommand());
         bootstrap.addCommand(new MatchCommand());
         bootstrap.addBundle(new AssetsBundle("/com/graphhopper/maps/", "/maps/", "index.html"));
         // see this link even though its outdated?! // https://www.webjars.org/documentation#dropwizard

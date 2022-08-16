@@ -1,4 +1,8 @@
-package com.graphhopper.routing.ev;
+package com.mtb.router.entities;
+
+import com.graphhopper.routing.ev.EncodedValue;
+import com.graphhopper.routing.ev.EncodedValueFactory;
+
 
 public class CustomEncodedValueFactory implements EncodedValueFactory {
 

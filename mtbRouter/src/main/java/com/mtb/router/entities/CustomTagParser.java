@@ -1,10 +1,9 @@
-package com.graphhopper.routing.util.parsers;
+package com.mtb.router.entities;
 
 import com.graphhopper.reader.ReaderWay;
 import com.graphhopper.routing.ev.IntEncodedValue;
-import com.graphhopper.routing.ev.gpx_weight;
+import com.graphhopper.routing.util.parsers.TagParser;
 import com.graphhopper.storage.IntsRef;
-
 
 public class CustomTagParser implements TagParser {
 
