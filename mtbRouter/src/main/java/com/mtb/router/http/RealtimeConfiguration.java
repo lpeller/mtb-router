@@ -15,36 +15,33 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package com.mtb.router;
+
+package com.mtb.router.http;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.graphhopper.GraphHopperConfig;
-import com.graphhopper.http.GraphHopperBundleConfiguration;
-import com.mtb.router.http.RealtimeBundleConfiguration;
-import com.mtb.router.http.RealtimeConfiguration;
-import io.dropwizard.Configuration;
+import com.graphhopper.http.FeedConfiguration;
+import io.dropwizard.client.HttpClientConfiguration;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 
-public class GraphHopperServerConfiguration extends Configuration implements GraphHopperBundleConfiguration, RealtimeBundleConfiguration {
+public class RealtimeConfiguration {
 
+    @Valid
     @NotNull
     @JsonProperty
-    private final GraphHopperConfig graphhopper = new GraphHopperConfig();
+    private HttpClientConfiguration httpClient = new HttpClientConfiguration();
 
     @JsonProperty
-    private final RealtimeConfiguration gtfsRealtime = new RealtimeConfiguration();
+    private List<FeedConfiguration> feeds = new ArrayList<>();
 
-    public GraphHopperServerConfiguration() {
+    public List<FeedConfiguration> getFeeds() {
+        return feeds;
     }
 
-    @Override
-    public GraphHopperConfig getGraphHopperConfiguration() {
-        return graphhopper;
-    }
-
-    @Override
-    public RealtimeConfiguration gtfsrealtime() {
-        return gtfsRealtime;
+    public HttpClientConfiguration getHttpClientConfiguration() {
+        return httpClient;
     }
 }

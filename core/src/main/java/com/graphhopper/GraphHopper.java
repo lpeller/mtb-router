@@ -578,7 +578,13 @@ public class GraphHopper {
         EncodingManager.Builder emBuilder = new EncodingManager.Builder();
         flagEncodersMap.forEach((name, encoderStr) -> emBuilder.add(vehicleEncodedValuesFactory.createVehicleEncodedValues(name, new PMap(encoderStr))));
         profiles.forEach(profile -> emBuilder.add(Subnetwork.create(profile.getName())));
-        encodedValueStrings.forEach(s -> emBuilder.add(encodedValueFactory.create(s)));
+        encodedValueStrings.forEach(s -> {
+            EncodedValue encodedValue = encodedValueFactory.create(s);
+            if(encodedValue!=null){
+                emBuilder.add(encodedValue);
+            }
+
+        });
         encodingManager = emBuilder.build();
 
         osmParsers = new OSMParsers();
